@@ -1,0 +1,38 @@
+dependencies {
+	implementation 'org.codehaus.groovy:groovy'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+	implementation project(':common')
+	implementation project(':domain')
+	implementation project(':order-application')
+
+	annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+
+	testImplementation  "org.mapstruct:mapstruct:${mapstructVersion}"
+	testImplementation 'org.mockito:mockito-junit-jupiter:4.6.0'
+	testImplementation 'org.postgresql:postgresql'
+	testImplementation 'mysql:mysql-connector-java'
+	testImplementation "org.testcontainers:postgresql:${testContainerVersion}"
+	testImplementation "org.testcontainers:mysql:${testContainerVersion}"
+	testAnnotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+}
+
+jacocoTestCoverageVerification {
+	afterEvaluate {
+		classDirectories.setFrom(files(classDirectories.files.collect {
+			fileTree(dir : it,
+					exclude : ['**/*MapperImpl.*',])
+		}))
+	}
+	violationRules {
+		rule {
+			excludes = ['**/*MapperImpl.*']
+			limit {
+				minimum = 0.1
+			}
+		}
+	}
+}
+
+
+check.dependsOn jacocoTestCoverageVerification

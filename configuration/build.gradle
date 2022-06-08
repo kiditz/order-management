@@ -1,0 +1,17 @@
+plugins {
+	id "org.springframework.boot" version "2.7.0"
+}
+
+dependencies {
+	implementation 'org.codehaus.groovy:groovy'
+	implementation project(':common')
+	implementation project(':order-application')
+	implementation project(':adapters:order-jpa')
+	runtimeOnly 'mysql:mysql-connector-java'
+//	implementation project(':adapters:order-mongo')
+	implementation project(':adapters:order-web')
+	implementation ('org.springframework.boot:spring-boot-starter-web')
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'junit' // excluding junit 4
+	}
+}

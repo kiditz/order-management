@@ -1,0 +1,17 @@
+spring:
+  datasource:
+#    url: jdbc:tc:postgresql:latest:////om
+    url: jdbc:tc:mysql:5.7.37:////om
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+  jpa:
+    hibernate:
+      ddl-auto: 'update'
+    show-sql: true
+
+logging:
+  level:
+    root: ERROR
+    org.springframework.test.context.jdbc: DEBUG
+    org.springframework.web: ERROR
+    com.savantdegrees: DEBUG
+    org.hibernate: ERROR

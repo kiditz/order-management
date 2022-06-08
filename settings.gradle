@@ -1,0 +1,16 @@
+rootProject.name = 'order-management'
+
+include(':common')
+include(':domain')
+include(':application')
+include(':configuration')
+include(':adapters:jpa')
+include(':adapters:mongo')
+include(':adapters:web')
+
+
+project(':application').name = 'order-application'
+project(':configuration').name = 'order-configuration'
+project(':adapters:mongo').name = 'order-mongo'
+project(':adapters:jpa').name = 'order-jpa'
+project(':adapters:web').name = 'order-web'

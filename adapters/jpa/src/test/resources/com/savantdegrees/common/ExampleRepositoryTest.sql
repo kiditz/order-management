@@ -1,0 +1,1 @@
+insert into example (id, title, author, deleted) values ('42af196b-e32b-4409-b1bf-763b3ea07793', 'Proffesional Java For Web Developer', 'Nicholas S. Williams', false);

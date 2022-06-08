@@ -1,0 +1,7 @@
+server:
+  port: 9000
+springdoc:
+  use-fqn: true
+  swagger-ui:
+    tagsSorter: alpha
+    operationsSorter: alpha

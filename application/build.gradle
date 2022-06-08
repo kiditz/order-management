@@ -1,0 +1,26 @@
+dependencies {
+	implementation 'org.codehaus.groovy:groovy'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'javax.transaction:javax.transaction-api'
+	implementation project(':common')
+	implementation project(':domain')
+}
+jacocoTestCoverageVerification {
+	afterEvaluate {
+		classDirectories.setFrom(files(classDirectories.files.collect {
+			fileTree(dir : it,
+					exclude : ['**/*MapperImpl.*',])
+		}))
+	}
+	violationRules {
+		rule {
+			excludes = ['**/*MapperImpl.*']
+			limit {
+				minimum = 0.8
+			}
+		}
+	}
+}
+
+
+check.dependsOn jacocoTestCoverageVerification
