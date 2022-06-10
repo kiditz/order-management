@@ -1,7 +1,7 @@
 package com.savantdegrees
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.savantdegrees.port.input.CreateOrderUseCase
+import com.savantdegrees.order.port.input.CreateOrderUseCase
 import net.datafaker.Faker
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.web.servlet.MockMvc

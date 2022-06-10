@@ -4,7 +4,7 @@ import com.savantdegrees.common.JpaMapper
 import com.savantdegrees.common.JpaRepositoryAdapter
 import com.savantdegrees.common.Adapter
 import com.savantdegrees.domain.order.Order
-import com.savantdegrees.port.output.OrderRepository
+import com.savantdegrees.order.port.output.OrderRepository
 
 @Adapter
 class OrderRepositoryAdapter extends JpaRepositoryAdapter<OrderEntity, Order> implements OrderRepository {

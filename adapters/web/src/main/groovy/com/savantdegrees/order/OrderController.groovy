@@ -1,8 +1,8 @@
 package com.savantdegrees.order
 
 import com.savantdegrees.domain.order.Order
-import com.savantdegrees.port.input.CreateOrderUseCase
-import com.savantdegrees.port.input.CreateOrderUseCase.CreateOrderRequest
+import com.savantdegrees.order.port.input.CreateOrderUseCase
+import com.savantdegrees.order.port.input.CreateOrderUseCase.CreateOrderRequest
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.validation.annotation.Validated
