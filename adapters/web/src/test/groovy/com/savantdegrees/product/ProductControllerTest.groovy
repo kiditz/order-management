@@ -21,11 +21,14 @@ class ProductControllerTest extends BaseTest {
 
 	def "when create product then save product"() {
 		given:
-			def request = new CreateProductUseCase.CreateProductRequest(code : faker.code().gtin8(),
+			def request = new CreateProductUseCase.CreateProductRequest(
+					code : faker.code().gtin8(),
 					name : faker.food().sushi(),
-					price : faker.number().numberBetween(10, 99).toBigDecimal())
+					price : faker.number().numberBetween(10, 99).toBigDecimal()
+			)
 		expect:
 			when(useCase.createProduct(any())).thenReturn(request.toProduct())
+
 			mockMvc.perform(post("/product")
 					.contentType(MediaType.APPLICATION_JSON_VALUE)
 					.content(asJsonString(request)))
